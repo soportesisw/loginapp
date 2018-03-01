@@ -40,4 +40,8 @@ registroUsuario(email: string, pass: string) {
   logOut() {
     return this.afAuth.auth.signOut();
   }
+
+  conGoogle() {
+    return this.afAuth.auth.signInWithPopup(new firebase.auth.GoogleAuthProvider());
+  }
 }
