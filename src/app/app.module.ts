@@ -17,6 +17,7 @@ import {AngularFireAuthModule} from 'angularfire2/auth';
 import {environment} from '../environments/environment';
 
 import {AutorizarService} from './servicios/autorizar.service';
+import { GuardiaGuard } from './guards/guardia.guard';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,7 @@ import {AutorizarService} from './servicios/autorizar.service';
     AngularFireAuthModule,
     AngularFireModule.initializeApp(environment.firebaseConfig)
   ],
-  providers: [AutorizarService],
+  providers: [AutorizarService, GuardiaGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
