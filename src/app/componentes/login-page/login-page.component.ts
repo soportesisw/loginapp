@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {AutorizarService} from '../../servicios/autorizar.service';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-login-page',
@@ -6,10 +8,24 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./login-page.component.css']
 })
 export class LoginPageComponent implements OnInit {
-
-  constructor() { }
+  public email: string;
+  public pass: string;
+  constructor(
+    public autorizarService: AutorizarService,
+    public router: Router
+  ) { }
 
   ngOnInit() {
+  }
+
+  onSubmitLogin() {
+    this.autorizarService.loginEmail(this.email, this.pass)
+    .then((res) => {
+        this.router.navigate(['/private']);
+    }).catch((err) => {
+      console.log(err);
+      this.router.navigate(['/login']);
+    });
   }
 
 }
