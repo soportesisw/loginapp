@@ -40,4 +40,18 @@ export class LoginPageComponent implements OnInit {
     }).catch(err => console.log(err.message));
   }
 
+  loginFacebook() {
+    this.autorizarService.conFacebook()
+    .then((res) => {
+        this.router.navigate(['/private']);
+    }).catch(err => console.log(err.message));
+  }
+
+  loginTwitter() {
+    this.autorizarService.conTwitter()
+    .then((res) => {
+        this.router.navigate(['/private']);
+    }).catch(err => console.log(err.message));
+  }
+
 }

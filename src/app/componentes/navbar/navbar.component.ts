@@ -17,6 +17,7 @@ export class NavbarComponent implements OnInit {
     ) { }
 
   ngOnInit() {
+    // Si hay un usuario Logado
     this.autorizarService.obtenerDatosUsuario().subscribe(auth => {
       if (auth) {
         this.isLogin = true;

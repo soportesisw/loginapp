@@ -44,4 +44,12 @@ registroUsuario(email: string, pass: string) {
   conGoogle() {
     return this.afAuth.auth.signInWithPopup(new firebase.auth.GoogleAuthProvider());
   }
+
+  conFacebook() {
+    return this.afAuth.auth.signInWithPopup(new firebase.auth.FacebookAuthProvider());
+  }
+
+  conTwitter() {
+    return this.afAuth.auth.signInWithPopup(new firebase.auth.TwitterAuthProvider());
+  }
 }
